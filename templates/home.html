@@ -1,0 +1,259 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}
+Hiring Now!
+{% endblock title %}
+{% block content %}
+<div class="crouselhr h-100">
+  <div id="carouselExampleDark" class="carousel carousel-white slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div style="height: 300px;" class="carousel-item active" data-bs-interval="10000">
+        <img
+          src="{% static 'images/banner1.png' %}"
+          class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div style="height: 300px;" class="carousel-item " data-bs-interval="2000">
+        <img
+          src="{% static 'images/banner2.png' %}"
+          class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div style="height: 300px;" class="carousel-item">
+        <img
+          src="{% static 'images/banner3.png' %}"
+          class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<div class="hr">
+  <h1 class="bg-primary text-white shadow-md"
+    style="text-align:center; font-family: 'Courier New', Courier, monospace; margin-top: 10px; font-weight: bold;">
+    Hiring Consultant Agency</h1>
+  <h3 class="bg-primary text-white shadow-md"
+    style="text-align:center; font-family: 'Courier New', Courier, monospace; margin-top: 10px;">A New Way of Gettting
+    Hired</h3>
+</div>
+<div style="justify-content: space-around; margin-top: 50px;" class="row">
+  <div class="card" style="width: 18rem; border:none;">
+    <h4 style="text-align: center; height: 7px; border-radius: 100px; margin-inline: 50px;"
+      class="bg-primary text-white">_</h4>
+    <h3 style="text-align: center; font-weight: 600;">Verified Jobs</h3>
+
+    <img style=" border-radius: 5px;"
+      src="{% static 'images/verified.png' %}"
+      class="card-img-top shadow-sm " alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+        content.</p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; border:none;">
+    <h4 style="text-align: center; height: 7px; border-radius: 100px; margin-inline: 50px;"
+      class="bg-primary text-white">_</h4>
+    <h3 style="text-align: center; font-weight: 600;">Quick Placements</h3>
+    <img style="border-radius: 5px;"
+      src="{% static 'images/quick.png' %}"
+      class="card-img-top shadow-sm" alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+        content.</p>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem; border:none;">
+    <h4 style="text-align: center; height: 7px; border-radius: 100px; margin-inline: 50px;"
+      class="bg-primary text-white">_</h4>
+    <h3 style="text-align: center; font-weight: 600;">Skill Based</h3>
+    <img style="border-radius: 5px;"
+      src="{% static 'images/skill.png' %}"
+      class="card-img-top shadow-sm" alt="...">
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+        content.</p>
+    </div>
+  </div>
+
+</div>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<div class="submit-box">
+  <div class="img">
+    <img src="{% static 'images/submit.png' %}" class="img-fluid" alt="">
+  </div>
+  <div class="">
+    <form style='margin:7px;' method="POST" action="/thank-you" enctype="multipart/form-data">
+      <h4 style="text-align: center; height: 7px; border-radius: 100px; width: 150px;" class="bg-primary"></h4>
+      <h3 id="sumbit-cv" style="font-weight:400;">Submit Your CV</h3>
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Full Name</label>
+        <input type="text" class="form-control shadow-sm" name='name' id="name" aria-describedby="emailHelp">
+
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Email</label>
+        <input type="email" class="form-control shadow-sm" name='email' id="email">
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Upload Your CV Here</label>
+        <input class="form-control shadow-sm" name='cv' type="file" id="cv">
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+<div style="margin-top: 50px; margin-left: 5px;" class="about " id="about ">
+  <h4 style="text-align: center; height: 7px; border-radius: 100px; width: 80px;" class="bg-primary"></h4>
+  <h3 id="about-us" style="font-weight:400;">About Us</h3>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod nam quos sint earum optio asperiores, deleniti nihil maiores temporibus obcaecati omnis explicabo itaque consequuntur commodi qui sit, numquam veritatis facere?</p>
+  <h4 style="text-align: center; height: 7px; border-radius: 100px; width: 80px;" class="bg-primary"></h4>
+  <h3 id="sumbit-cv" style="font-weight:400;">Address</h3>
+  <span>9-18-389 Malapally Masjid,Nizamabad 503001s</span>
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.831498296168!2d78.07937881432134!3d18.67155586941358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcddbbe8587be25%3A0x186ce0ce17f8f12d!2sS%20N%20Collection!5e0!3m2!1sen!2sin!4v1658472101113!5m2!1sen!2sin" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <br>
+  <h4 style="text-align: center; height: 7px; border-radius: 100px; width: 80px;" class="bg-primary"></h4>
+  <h3 id="sumbit-cv" style="font-weight:400;">Timings</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Days</th>
+        <th scope="col">Timings From</th>
+        <th scope="col">To</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Monday</td>
+        <td>24 Hours</td>
+        <td>24 Hours</td>
+        
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+            <td>Tuesday</td>
+        <td>24 Hours</td>
+        <td>24 Hours</td>
+    
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Wednesday</td>
+        <td>24 Hours</td>
+        <td>24 Hours</td>
+
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>Thursday</td>
+        <td>24 Hours</td> 
+         <td>24 Hours</td>
+  
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>Friday</td>
+        <td>24 Hours</td>  <td>24 Hours</td>
+        
+      <tr>
+        <th scope="row">6</th>
+        <td>Saturday</td>
+        <td>24 Hours</td>
+        <td>24 Hours</td>
+        
+      </tr>
+      <tr>
+        <th scope="row">7</th>
+        <td>Sunday</td>
+        <td>24 Hours</td>
+        <td>24 Hours</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="contact">
+    <br>
+  <h4 style="text-align: center; height: 7px; border-radius: 100px; width: 80px;" class="bg-primary"></h4>
+  <h3 id="contact-us" style="font-weight:400;">Contact Us</h3>
+  <br>
+  <form action="/" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+      <input type="text" name="contactname" class="form-control" id="exampleFormControlInput1" placeholder="full name">
+    </div>
+    <div class="mb-3">
+
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" name="contactemail" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+   
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Issue</label>
+      <textarea class="form-control" name="contactdesc" id="exampleFormControlTextarea1" rows="3"></textarea>
+      
+    </div>
+<button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
+</div>
+<br>
+<br>
+<footer>
+  <div class="bg-primary p-4" >
+    <span class="text-white" >&#169; All Rights Reserved 2022 SN Collection</span>
+     </div>
+</footer>
+<style>
+html{
+  scroll-behavior: smooth;
+  overflow: auto;
+}
+@media (min-width: 768px) {
+  .submit-box{
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+  }
+  .contact{
+    width: 50%;
+    margin: 0px auto auto auto;
+  }
+}
+
+  
+</style>
+{% endblock content %}
